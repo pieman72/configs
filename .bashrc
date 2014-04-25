@@ -201,7 +201,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[1;32;40m\]\u\[\033[0;32m\]@\[\033[4;31m\]\h\[\033[0;32m\]:\w\$\[\033[0;37m\] '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[38;5;118m\]\u@\[\033[4;31m\]\h\[\033[0;38;5;118m\]:\w\$\[\033[0;37m\] '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi

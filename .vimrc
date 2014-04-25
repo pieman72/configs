@@ -54,7 +54,6 @@ else
 	let g:airline_powerline_fonts = 0  " -- No fancy separators
 endif
 let g:airline#extensions#tagbar#enabled = 1     " -- Integrate with tagbar
-let g:airline#extensions#tagbar#flags = 's'     " -- Show function prototypes
 let g:airline#extensions#syntastic#enabled = 1  " -- Integrate with syntastic
 let g:airline#extensions#fugitive#enabled = 1   " -- Integrate with tagbar
 let g:airline_section_a = airline#section#create(['mode'])
@@ -174,8 +173,8 @@ vmap <S-tab> <gv
 " ===                      MANAGING GIT CHANGE REGIONS                       ===
 " ==============================================================================
 
-nmap [1;5B <Plug>GitGutterNextHunk
-nmap [1;5A <Plug>GitGutterPrevHunk
+nmap [1;5B :GitGutterNextHunk<CR>
+nmap [1;5A :GitGutterPrevHunk<CR>
 nmap <F6> <Plug>GitGutterStageHunk
 nmap <F7> <Plug>GitGutterRevertHunk
 
