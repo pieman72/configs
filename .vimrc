@@ -109,8 +109,14 @@ filetype plugin on
 " ===                            CUSTOM MAPPINGS                             ===
 " ==============================================================================
 
-" Function keys
+" Increment / decrement one ascii characrer
+nmap - :execute "normal! r".nr2char(char2nr(getline('.')[col('.')-1])-1)<CR>
+nmap + :execute "normal! r".nr2char(char2nr(getline('.')[col('.')-1])+1)<CR>
+
+" Spellcheck toggle
 map <F5> :setlocal spell! spelllang=en_us<cr>
+
+" Clean up bad whitespace
 map <F8> :%s/\s\+$\|\r//eg<cr>
 
 " Custom bindings
@@ -128,14 +134,10 @@ map <C-t> :sp<CR>:e<Space>
 map <S-T> :vsp<CR><TAB>:e<Space>
 map <tab> <C-w>w
 map <S-tab> <C-w>W
-map <C-S-z> 100<C-e>
-map <C-S-x> 100<C-y>
 map <C-z> 15<C-e>15<down>
 map <C-x> 15<C-y>15<up>
 map <S-z> <C-e><down>
 map <S-x> <C-y><up>
-map <C-up> <C-e>
-map <C-down> <C-y>
 map <C-S-P> :echo "group='" . synIDattr(synID(line("."),col("."),0),"name") . "'  shown='" . synIDattr(synID(line("."),col("."),1),"name") . "'  links='" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . "'"<CR>
 map <esc> :nohlsearch<cr>
 
