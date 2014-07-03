@@ -33,16 +33,23 @@ alias ncl="nc -l -p"
 alias apache="sudo /etc/init.d/apache2"
 alias beep="echo -e '\a'"
 alias tmux="tmux -u"
-alias tatt="tmux attach-session -t"
 alias tl="tmux list-sessions"
 alias pro=swipl
 alias sudo="sudo "
 alias woodo="/home/kenny/sandbox/woodo/woodo.sh"
-alias git="/home/kenny/bin/hub"
-alias less=/usr/share/vim/vim72/macros/less.sh
+alias git="/home/kenny/hub/hub"
+alias less=/usr/share/vim/vim74/macros/less.sh
 alias ifconfig="ifconfig|sed 's/inet addr:\([0-9.]*\)/inet addr:[1;37;48;5;19m\1[0;39;49m/'"
 alias lisp="sbcl"
 alias lisp_load="sbcl --load"
+alias tatt="tmux attach-session -t"
+# Tab complete Tmux sessions
+tmuxComplete(){
+    local cur=${COMP_WORDS[COMP_CWORD]}
+    COMPREPLY=( $(compgen -W "$(tmux list-sessions | cut -d: -f1 | paste -s -d ' ' -)" -- $cur) )
+}
+complete -F tmuxComplete tatt
+
 function search(){
 	srchpth=".";
 	if [ "$2" ]; then
