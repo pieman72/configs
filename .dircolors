@@ -1,0 +1,207 @@
+# Configuration file for dircolors, a utility to help you set the
+# LS_COLORS environment variable used by GNU ls with the --color option.
+# Copyright (C) 1996-2013 Free Software Foundation, Inc.
+# Copying and distribution of this file, with or without modification,
+# are permitted provided the copyright notice and this notice are preserved.
+
+
+## TERMINAL TYPES ##
+TERM Eterm
+TERM ansi
+TERM color-xterm
+TERM con132x25
+TERM con132x30
+TERM con132x43
+TERM con132x60
+TERM con80x25
+TERM con80x28
+TERM con80x30
+TERM con80x43
+TERM con80x50
+TERM con80x60
+TERM cons25
+TERM console
+TERM cygwin
+TERM dtterm
+TERM eterm-color
+TERM gnome
+TERM gnome-256color
+TERM jfbterm
+TERM konsole
+TERM kterm
+TERM linux
+TERM linux-c
+TERM mach-color
+TERM mlterm
+TERM putty
+TERM rxvt
+TERM rxvt-256color
+TERM rxvt-cygwin
+TERM rxvt-cygwin-native
+TERM rxvt-unicode
+TERM rxvt-unicode-256color
+TERM rxvt-unicode256
+TERM screen
+TERM screen-256color
+TERM screen-256color-bce
+TERM screen-bce
+TERM screen-w
+TERM screen.Eterm
+TERM screen.rxvt
+TERM screen.linux
+TERM st
+TERM st-256color
+TERM terminator
+TERM vt100
+TERM xterm
+TERM xterm-16color
+TERM xterm-256color
+TERM xterm-88color
+TERM xterm-color
+TERM xterm-debian
+
+
+## FILE PROPERTIES ##
+
+# General files and directories
+NORMAL 0
+FILE 0
+RESET 0
+DIR 38;5;221
+
+# Pipes
+FIFO 38;5;105
+SOCK 38;5;105
+DOOR 38;5;105
+
+# Links
+LINK 4
+ORPHAN 4;38;5;196
+#MULTIHARDLINK 0
+
+# Drivers
+BLK 0 # block device driver
+CHR 0 # character device driver
+
+# Property flags
+EXEC 1
+#SETUID 0
+#SETGID 0
+#CAPABILITY 0
+#STICKY_OTHER_WRITABLE 0
+#OTHER_WRITABLE 0
+#STICKY 0
+
+
+## FILE EXTENSIONS ##
+
+# Executables
+.cmd 38;5;40
+.exe 38;5;40
+.com 38;5;40
+.btm 38;5;40
+.bat 38;5;40
+.sh 38;5;40
+.csh 38;5;40
+
+# Archives
+.tar 38;5;243
+.tgz 38;5;243
+.arj 38;5;243
+.taz 38;5;243
+.lzh 38;5;243
+.lzma 38;5;243
+.tlz 38;5;243
+.txz 38;5;243
+.zip 38;5;243
+.z 38;5;243
+.Z 38;5;243
+.dz 38;5;243
+.gz 38;5;243
+.lz 38;5;243
+.xz 38;5;243
+.bz2 38;5;243
+.bz 38;5;243
+.tbz 38;5;243
+.tbz2 38;5;243
+.tz 38;5;243
+.deb 38;5;243
+.rpm 38;5;243
+.jar 38;5;243
+.war 38;5;243
+.ear 38;5;243
+.sar 38;5;243
+.rar 38;5;243
+.ace 38;5;243
+.zoo 38;5;243
+.cpio 38;5;243
+.7z 38;5;243
+.rz 38;5;243
+
+# Images
+.jpg 38;5;81
+.jpeg 38;5;81
+.gif 38;5;81
+.bmp 38;5;81
+.pbm 38;5;81
+.pgm 38;5;81
+.ppm 38;5;81
+.tga 38;5;81
+.xbm 38;5;81
+.xpm 38;5;81
+.tif 38;5;81
+.tiff 38;5;81
+.png 38;5;81
+.svg 38;5;81
+.svgz 38;5;81
+.mng 38;5;81
+.pcx 38;5;81
+.mov 38;5;81
+.mpg 38;5;81
+.mpeg 38;5;81
+.m2v 38;5;81
+.mkv 38;5;81
+.webm 38;5;81
+.ogm 38;5;81
+.mp4 38;5;81
+.m4v 38;5;81
+.mp4v 38;5;81
+.vob 38;5;81
+.qt 38;5;81
+.nuv 38;5;81
+.wmv 38;5;81
+.asf 38;5;81
+.rm 38;5;81
+.rmvb 38;5;81
+.flc 38;5;81
+.avi 38;5;81
+.fli 38;5;81
+.flv 38;5;81
+.gl 38;5;81
+.dl 38;5;81
+.xcf 38;5;81
+.xwd 38;5;81
+.yuv 38;5;81
+.cgm 38;5;81
+.emf 38;5;81
+.axv 38;5;81
+.anx 38;5;81
+.ogv 38;5;81
+.ogx 38;5;81
+
+# Audio
+.aac 38;5;27
+.au 38;5;27
+.flac 38;5;27
+.mid 38;5;27
+.midi 38;5;27
+.mka 38;5;27
+.mp3 38;5;27
+.mpc 38;5;27
+.ogg 38;5;27
+.ra 38;5;27
+.wav 38;5;27
+.axa 38;5;27
+.oga 38;5;27
+.spx 38;5;27
+.xspf 38;5;27
