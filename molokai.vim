@@ -57,6 +57,10 @@ if &t_Co > 255
    hi diffLine        ctermfg=135
    hi diffSubname     ctermfg=242
 
+   " Silly Git stuff
+   hi gitcommitSummary ctermfg=252
+   hi gitcommitBlank  ctermfg=252
+
    hi Directory       ctermfg=118               cterm=bold
    hi Error           ctermfg=219 ctermbg=89
    hi ErrorMsg        ctermfg=199 ctermbg=16    cterm=bold
@@ -125,6 +129,9 @@ if &t_Co > 255
    hi NonText         ctermfg=250 ctermbg=233
 
 "-- Kenny's mods -----------------------------------------
+   " Lines too long
+   hi ColorColumn     ctermbg=233
+
    " Javascript
    hi javaScript      ctermfg=252
    hi javaScriptIdentifier ctermfg=118
@@ -168,5 +175,11 @@ if &t_Co > 255
    hi GitGutterChange ctermfg=208
    hi GitGutterDelete ctermfg=161
    hi GitGutterChangeDelete ctermfg=208
+
+   " ADHOC library function keywords
+   hi ADHOCMem        ctermfg=166
+   hi ADHOCRef        ctermfg=248
+   hi ADHOCData       ctermfg=135
+   hi ADHOCLib        ctermfg=81
 "---------------------------------------------------------
 end

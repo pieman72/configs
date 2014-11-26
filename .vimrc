@@ -5,6 +5,8 @@
 " Set home path
 let $HOME='/home/kenny/'
 
+" Set leader input
+let mapleader = ","
 
 " ==============================================================================
 " ===                                PLUGINS                                 ===
@@ -12,22 +14,29 @@ let $HOME='/home/kenny/'
 
 " Set up Vundle
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " Let Vundle manage plugins
 Bundle 'gmarik/vundle'
 Bundle 'majutsushi/tagbar'
+Bundle 'vim-scripts/TaskList.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'bling/vim-airline'
 Bundle 'tristen/vim-sparkup'
+Bundle 'marijnh/tern_for_vim'
+Bundle 'pieman72/vim-vigor'
+call vundle#end()
 
 " Config for tagbar
 let g:tagbar_map_togglefold = "<space>"
 let g:tagbar_map_showproto = "<right>"
 let g:tagbar_autoclose = 0
+
+" Config for TaskList
+let g:tlWindowPosition = 3
 
 " Config for syntastic
 let g:syntastic_php_checkers = ['php']
@@ -40,39 +49,49 @@ let g:gitgutter_eager = 1
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '~'
 let g:gitgutter_sign_removed = '_'
-let g:gitgutter_sign_modified_removed = '~'
+let g:gitgutter_sign_modified_removed = '±'
 
 " Config for vim airline
 set noshowmode                     " -- Hide default mode indicator
 set laststatus=2                   " -- Show airline even with only one split
 let g:airline_theme = 'molokai'    " -- Airline color theme
-if has("multi_byte")
-	set termencoding=utf-8
-	set encoding=utf-8
-	let g:airline_powerline_fonts = 1  " -- Allow fancy separators
-else
-	let g:airline_powerline_fonts = 0  " -- No fancy separators
-endif
-let g:airline#extensions#tagbar#enabled = 1     " -- Integrate with tagbar
-let g:airline#extensions#syntastic#enabled = 1  " -- Integrate with syntastic
-let g:airline#extensions#fugitive#enabled = 1   " -- Integrate with tagbar
-let g:airline_section_a = airline#section#create(['mode'])
-let g:airline_section_b = airline#section#create(["%{airline#extensions#branch#get_head()}"])
-let g:airline_section_c = airline#section#create(['file',' (','filetype',')'])
-let g:airline_section_x = airline#section#create(["\ue0a1%l \ue0a3%c"])
-let g:airline_section_y = airline#section#create(["%{airline#extensions#tagbar#currenttag()}"])
-let g:airline_section_z = airline#section#create(["%{airline#parts#ffenc()}"])
-let g:airline_section_warning = airline#section#create(['syntastic', 'whitespace'])
+function! AirlineInit()
+	try
+		if has("multi_byte")
+			set termencoding=utf-8
+			set encoding=utf-8
+			let g:airline_powerline_fonts = 1  " -- Allow fancy separators
+			let g:airline_left_sep = "\ue0b0"
+			let g:airline_right_sep = "\ue0b2"
+			let g:airline_symbols.readonly = "\ue0a2"
+		else
+			let g:airline_powerline_fonts = 0  " -- No fancy separators
+		endif
+		let g:airline#extensions#tagbar#enabled = 1     " -- Integrate with tagbar
+		let g:airline#extensions#syntastic#enabled = 1  " -- Integrate with syntastic
+		let g:airline#extensions#fugitive#enabled = 1   " -- Integrate with tagbar
+		let g:airline_section_a = airline#section#create(['mode'])
+		let g:airline_section_b = airline#section#create(["%{airline#extensions#branch#get_head()}"])
+		let g:airline_section_c = airline#section#create(['file',' (','filetype',')'])
+		let g:airline_section_x = airline#section#create(["\ue0a1%l \ue0a3%c"])
+		let g:airline_section_y = airline#section#create(["%{airline#extensions#tagbar#currenttag()}"])
+		let g:airline_section_z = airline#section#create(["%{airline#parts#ffenc()}"])
+		let g:airline_section_warning = airline#section#create(['syntastic', 'whitespace'])
+	catch
+	endtry
+endfunction
+auto VimEnter * call AirlineInit()
 
 " Config for sparkup
 let g:sparkupDoubleQuote = 1
 
+" Config for tern_for_vim
+"let g:tern#command = ["~/.vim/bundle/tern_for_vim/node_modules/tern/bin/tern"]
 
 
 " ==============================================================================
 " ===                            EDITING OPTIONS                             ===
 " ==============================================================================
-
 " Line Numbers
 set nu
 
@@ -81,6 +100,9 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set noexpandtab
+
+" Hightlight long lines
+set colorcolumn=80
 
 " Backspace works as it damn well should!
 set backspace=indent,eol,start
@@ -101,6 +123,10 @@ auto BufNewFile,BufRead *.bb setlocal filetype=bb
 auto BufNewFile,BufRead *.boa setlocal filetype=boa
 auto BufNewFile,BufRead *.txt setlocal filetype=txt
 
+" Preserve folds etc. when leaving a file
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
+
 " Enable plugins in editor
 filetype plugin on
 
@@ -110,20 +136,21 @@ filetype plugin on
 " ==============================================================================
 
 " Increment / decrement one ascii characrer
-nmap - :execute "normal! r".nr2char(char2nr(getline('.')[col('.')-1])-1)<CR>
-nmap + :execute "normal! r".nr2char(char2nr(getline('.')[col('.')-1])+1)<CR>
+nmap - :execute "normal! r".nr2char(char2nr(getline('.')[col('.')-1])-1)<CR>:redraw!<CR>
+nmap + :execute "normal! r".nr2char(char2nr(getline('.')[col('.')-1])+1)<CR>:redraw!<CR>
 
 " Spellcheck toggle
 map <F5> :setlocal spell! spelllang=en_us<cr>
 
 " Clean up bad whitespace
-map <F8> :%s/\s\+$\|\r//eg<cr>
+map <F8> :%s/\s\+$//eg<cr>:%s/    /\t/eg<cr>:%s/\r$//eg<cr>
 
 " Custom bindings
 map <C-a> :ascii<CR>
 map <S-c> `[v`]>gv:s/:\s/:/<cr>:nohlsearch<cr>
 map <S-d> diW
 map <S-e> :TagbarOpen -fjc<cr>
+map <S-r> :TaskList<cr>
 map <C-f> /\c
 map <C-h> :%s///gc<left><left><left><left>
 map <S-h> i<cr><esc><up>$
@@ -165,6 +192,8 @@ vmap <C-b> <del>gv<del>
 
 " Code Folding
 map <space> mf%zf'f
+nmap f zf
+vmap f zf
 
 " Visual tabbing
 vmap <tab> >gv
@@ -182,7 +211,7 @@ nmap <F7> <Plug>GitGutterRevertHunk
 
 
 " ==============================================================================
-" ===                         AUTO COMPLETE SETTINGS                         ===
+" ===                         AUTO-COMPLETE SETTINGS                         ===
 " ==============================================================================
 
 " Autocomplete options
@@ -215,6 +244,10 @@ inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
 " ==============================================================================
 " ===                                  MISC.                                 ===
 " ==============================================================================
+
+" Associate .h files with C, always
+let g:c_syntax_for_h = 1
+let c_syntax_for_h = 1
 
 " After writing to any .vimrc, source that file
 au! BufWritePost .vimrc so %

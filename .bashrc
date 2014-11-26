@@ -28,10 +28,9 @@ export GOPATH=/usr/share/go/
 export SVN_EDITOR='vim -c "4,\$y" -c "vnew" -c "put" -c "set syntax=diff buftype=nofile nowrap nobackup previewwindow bufhidden=delete" -c "silent execute \"%!cut -c-5 --complement | xargs svn diff --no-diff-deleted -x --ignore-eol-style\" | redraw" +0'
 
 # My quick_scripts
-alias exist="sh ~/quick_scripts/exist.sh "
 alias ncl="nc -l -p"
 alias apache="sudo /etc/init.d/apache2"
-alias beep="echo -e '\a'"
+alias beep="echo -n -e '\a'"
 alias tmux="tmux -u"
 alias tl="tmux list-sessions"
 alias pro=swipl
@@ -42,13 +41,13 @@ alias less=/usr/share/vim/vim74/macros/less.sh
 alias ifconfig="ifconfig|sed 's/inet addr:\([0-9.]*\)/inet addr:[1;37;48;5;19m\1[0;39;49m/'"
 alias lisp="sbcl"
 alias lisp_load="sbcl --load"
-alias tatt="tmux attach-session -t"
+alias ta="tmux attach-session -t"
 # Tab complete Tmux sessions
 tmuxComplete(){
     local cur=${COMP_WORDS[COMP_CWORD]}
     COMPREPLY=( $(compgen -W "$(tmux list-sessions | cut -d: -f1 | paste -s -d ' ' -)" -- $cur) )
 }
-complete -F tmuxComplete tatt
+complete -F tmuxComplete ta
 
 function search(){
 	srchpth=".";
@@ -57,7 +56,8 @@ function search(){
 	fi;
 	grep -lr "$1" $srchpth\
 		| grep -v 'svn'\
-		| grep -v '.swp$'\
+		| grep -v '\.git/'\
+		| grep -v '\.swp$'\
 		| sed 's/\/\([^\/]*\)$/\/[1m\1[0m/';
 	echo -e '\a';
 }
@@ -68,7 +68,8 @@ function searchi(){
 	fi;
 	grep -ilr "$1" $srchpth\
 		| grep -v 'svn'\
-		| grep -v '.swp$'\
+		| grep -v '\.git/'\
+		| grep -v '\.swp$'\
 		| sed 's/\/\([^\/]*\)$/\/[1m\1[0m/';
 	echo -e '\a';
 }
@@ -80,7 +81,8 @@ function searchv(){
 	vim -o "+/$1"\
 		$(grep -lr "$1" $srchpth\
 			| grep -v 'svn'\
-			| grep -v '.swp$'\
+			| grep -v '\.git/'\
+			| grep -v '\.swp$'\
 		);
 }
 function fnd(){
@@ -90,6 +92,7 @@ function fnd(){
 	fi;
 	find $fndpth -name *$1*\
 		| grep -v '\.svn'\
+		| grep -v '\.git/'\
 		| sed 's/\/\([^\/]*\)$/\/[1m\1[0m/'\
 		| sed 's/$/[0;39m/';
 	echo -e '\a';
@@ -102,6 +105,7 @@ function fndv(){
 	vim -o\
 		$(find $fndpth -name "*$1*"\
 			| grep -v '\.svn'\
+			| grep -v '\.git/'\
 			| grep -v '\.swp$'\
 		);
 }
