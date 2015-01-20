@@ -33,11 +33,11 @@ endif
 "
 if &t_Co > 255
    hi Boolean         ctermfg=208
-   hi Character       ctermfg=144
+   hi Character       ctermfg=208
    hi Number          ctermfg=208
    hi String          ctermfg=208
    hi Conditional     ctermfg=161               cterm=bold
-   hi Constant        ctermfg=135               cterm=bold
+   hi Constant        ctermfg=208               cterm=bold
    hi Cursor          ctermfg=16  ctermbg=253
    hi Debug           ctermfg=225               cterm=bold
    hi Define          ctermfg=118
@@ -65,7 +65,7 @@ if &t_Co > 255
    hi Error           ctermfg=219 ctermbg=89
    hi ErrorMsg        ctermfg=199 ctermbg=16    cterm=bold
    hi Exception       ctermfg=118               cterm=bold
-   hi Float           ctermfg=135
+   hi Float           ctermfg=208
    hi FoldColumn      ctermfg=67  ctermbg=16
    hi Folded          ctermfg=67  ctermbg=16
    hi Function        ctermfg=81
@@ -102,7 +102,7 @@ if &t_Co > 255
    hi Special         ctermfg=81  ctermbg=232
    hi SpecialKey      ctermfg=245
 
-   hi Statement       ctermfg=118               cterm=bold
+   hi Statement       ctermfg=161               cterm=bold
    hi StatusLine      ctermfg=238 ctermbg=253
    hi StatusLineNC    ctermfg=244 ctermbg=232
    hi StorageClass    ctermfg=118
@@ -176,9 +176,21 @@ if &t_Co > 255
    hi GitGutterDelete ctermfg=161
    hi GitGutterChangeDelete ctermfg=208
 
+   " Vim Outliner
+   hi OL1             ctermfg=118
+   hi OL2             ctermfg=81
+   hi OL3             ctermfg=161
+   hi OL4             ctermfg=135
+   hi OL5             ctermfg=208
+   hi OL6             ctermfg=118 ctermbg=241
+   hi OL7             ctermfg=81 ctermbg=241
+   hi OL8             ctermfg=161 ctermbg=241
+   hi OL9             ctermfg=135 ctermbg=241
+   hi OL0             ctermfg=208 ctermbg=241
+
    " ADHOC library function keywords
    hi ADHOCMem        ctermfg=166
-   hi ADHOCRef        ctermfg=248
+   hi ADHOCRef        ctermfg=245
    hi ADHOCData       ctermfg=135
    hi ADHOCLib        ctermfg=81
 "---------------------------------------------------------

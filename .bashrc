@@ -31,17 +31,19 @@ export SVN_EDITOR='vim -c "4,\$y" -c "vnew" -c "put" -c "set syntax=diff buftype
 alias ncl="nc -l -p"
 alias apache="sudo /etc/init.d/apache2"
 alias beep="echo -n -e '\a'"
-alias tmux="tmux -u"
+alias tm="tmux -u"
 alias tl="tmux list-sessions"
+alias ta="tmux -u attach-session -t"
 alias pro=swipl
 alias sudo="sudo "
 alias woodo="/home/kenny/sandbox/woodo/woodo.sh"
-alias git="/home/kenny/hub/hub"
+alias git="/usr/local/bin/hub"
 alias less=/usr/share/vim/vim74/macros/less.sh
 alias ifconfig="ifconfig|sed 's/inet addr:\([0-9.]*\)/inet addr:[1;37;48;5;19m\1[0;39;49m/'"
 alias lisp="sbcl"
 alias lisp_load="sbcl --load"
-alias ta="tmux attach-session -t"
+alias configs_export="~/configs/export.sh"
+alias configs_import="~/configs/import.sh"
 # Tab complete Tmux sessions
 tmuxComplete(){
     local cur=${COMP_WORDS[COMP_CWORD]}

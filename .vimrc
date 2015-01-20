@@ -21,6 +21,7 @@ call vundle#begin()
 Bundle 'gmarik/vundle'
 Bundle 'majutsushi/tagbar'
 Bundle 'vim-scripts/TaskList.vim'
+Bundle 'vimoutliner/vimoutliner'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
@@ -117,6 +118,9 @@ set hlsearch
 " Syntax highlighting and colors
 sy on
 colors molokai
+
+" Windows don't auto-resize when one is closed
+set noea
 
 " Custom colorings for various file extensions
 auto BufNewFile,BufRead *.bb setlocal filetype=bb

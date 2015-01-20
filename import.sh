@@ -6,7 +6,8 @@ cp "$HOME/.vim/bundle/vim-airline/autoload/airline/themes/molokai.vim" "$DIR/air
 cp "$HOME/.bashrc" "$DIR/.bashrc"
 cp "$HOME/.dircolors" "$DIR/.dircolors"
 cp "$HOME/.vim/colors/molokai.vim" "$DIR/molokai.vim"
-cp "$HOME/TerminalAwesomeness.ttf" "$DIR/TerminalAwesomeness.ttf"
+cp "/usr/local/share/fonts/TerminalAwesomeness.ttf" "$DIR/TerminalAwesomeness.ttf" 2>/dev/null || :
+cp "/usr/share/fonts/TerminalAwesomeness.ttf" "$DIR/TerminalAwesomeness.ttf" 2>/dev/null || :
 cp "$HOME/.tmux.conf" "$DIR/.tmux.conf"
-cp "$HOME/tmux_tempr.sh" "$DIR/tmux_tempr.sh"
+cp "$HOME/scripts/tmux_tempr.sh" "$DIR/tmux_tempr.sh"
 cp "$HOME/.vimrc" "$DIR/.vimrc"

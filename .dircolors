@@ -84,9 +84,9 @@ BLK 0 # block device driver
 CHR 0 # character device driver
 
 # Property flags
-EXEC 1
-#SETUID 0
-#SETGID 0
+#EXEC 0
+SETUID 38;5;202
+SETGID 38;5;202
 #CAPABILITY 0
 #STICKY_OTHER_WRITABLE 0
 #OTHER_WRITABLE 0
