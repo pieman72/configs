@@ -78,7 +78,7 @@ if &t_Co > 255
    hi Macro           ctermfg=193
    hi SpecialKey      ctermfg=81
 
-   hi MatchParen      ctermfg=16  ctermbg=208 cterm=bold
+   hi MatchParen      ctermfg=16  ctermbg=135 cterm=bold
    hi ModeMsg         ctermfg=229
    hi MoreMsg         ctermfg=229
    hi Operator        ctermfg=135
@@ -168,6 +168,9 @@ if &t_Co > 255
    hi phpSpecialFunction ctermfg=160
    hi phpStructure    ctermfg=32
    hi phpMemberSelector ctermfg=32
+
+   " Java
+   hi javaParenT      ctermfg=135
 
    " Git Gutter
    hi SignColumn      ctermbg=0

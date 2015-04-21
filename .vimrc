@@ -8,6 +8,7 @@ let $HOME='/home/kenny/'
 " Set leader input
 let mapleader = ","
 
+
 " ==============================================================================
 " ===                                PLUGINS                                 ===
 " ==============================================================================
@@ -20,7 +21,6 @@ call vundle#begin()
 " Let Vundle manage plugins
 Bundle 'gmarik/vundle'
 Bundle 'majutsushi/tagbar'
-Bundle 'vim-scripts/TaskList.vim'
 Bundle 'vimoutliner/vimoutliner'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
@@ -36,10 +36,14 @@ let g:tagbar_map_togglefold = "<space>"
 let g:tagbar_map_showproto = "<right>"
 let g:tagbar_autoclose = 0
 
-" Config for TaskList
-let g:tlWindowPosition = 3
-
 " Config for syntastic
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+let g:syntastic_c_remove_include_errors = 1
+let g:syntastic_cpp_remove_include_errors = 1
+let g:syntastic_cpp_checkers=['clang']
 let g:syntastic_php_checkers = ['php']
 
 " Config for GitGutter
@@ -93,6 +97,7 @@ let g:sparkupDoubleQuote = 1
 " ==============================================================================
 " ===                            EDITING OPTIONS                             ===
 " ==============================================================================
+
 " Line Numbers
 set nu
 
@@ -128,8 +133,8 @@ auto BufNewFile,BufRead *.boa setlocal filetype=boa
 auto BufNewFile,BufRead *.txt setlocal filetype=txt
 
 " Preserve folds etc. when leaving a file
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent loadview
+autocmd BufWinLeave *[a-zA-Z0-9_.]* mkview
+autocmd BufWinEnter *[a-zA-Z0-9_.]* silent loadview
 
 " Enable plugins in editor
 filetype plugin on
@@ -154,7 +159,6 @@ map <C-a> :ascii<CR>
 map <S-c> `[v`]>gv:s/:\s/:/<cr>:nohlsearch<cr>
 map <S-d> diW
 map <S-e> :TagbarOpen -fjc<cr>
-map <S-r> :TaskList<cr>
 map <C-f> /\c
 map <C-h> :%s///gc<left><left><left><left>
 map <S-h> i<cr><esc><up>$
@@ -255,3 +259,4 @@ let c_syntax_for_h = 1
 
 " After writing to any .vimrc, source that file
 au! BufWritePost .vimrc so %
+
