@@ -62,7 +62,7 @@ if &t_Co > 255
    hi gitcommitBlank  ctermfg=252
 
    hi Directory       ctermfg=118               cterm=bold
-   hi Error           ctermfg=219 ctermbg=89
+   hi Error           ctermfg=15 ctermbg=161
    hi ErrorMsg        ctermfg=199 ctermbg=16    cterm=bold
    hi Exception       ctermfg=118               cterm=bold
    hi Float           ctermfg=208

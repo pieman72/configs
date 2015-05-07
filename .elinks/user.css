@@ -1,0 +1,10 @@
+html, body, div, p {
+	background:#000000;
+	color:#FFFFFF;
+}
+h1, h2, h3, h4, b {
+	color:#FFFFFF;
+}
+h1, h2, u {
+	text-decoration:underline;
+}

@@ -1,0 +1,77 @@
+### General -------------------------------------------------------------------
+# General usage settings
+set sort=reverse-date-sent	# Sort messages by newest on top
+set arrow_cursor			# Show '->' next to selections instead of highlight
+set menu_scroll				# List-style menus scroll instead of paging
+set strict_threads			# Enforce thread markers, not just same subject
+unset collapse_unread		# Don't collapse a thread if it has unread messages
+
+# Handle HTML emails last and as per ~/.mailcap
+auto_view text/html
+alternative_order text/enriched text/plain text text/html
+
+# Format strings for various displays
+set alias_format="%-15.15t %a %r"
+set attach_format="%T%d%?f? \"%-30.30f\"?%> [%m/%M | %s]"
+set compose_format="Compose  %a Attachment(s) %> %l"
+set date_format="%b %d %l:%M%P"
+set forward_format="Fwd: %s"
+set index_format="%-25.25L %s%> %D"
+set pager_format="Pager  Message %C/%m%> %c"
+set status_format="Index  %f%?u? - %u Unread?%?p? - %p Draft(s)?%> %l"
+
+# Names and aliases
+set alias_file="/home/kenny/.mutt_aliases"
+set realname="Kenny Harvey"
+
+# Colors for the general interface
+color error color15 color161		# Error messages
+color index color252 default ~A		# Default messages in index
+color index color118 default ~U		# Unread messages in index
+color index color208 default ~R		# Read messages in index
+color index color252 default ~Q		# Replied-to messages in index
+color index color81 default "~d>2m"	# Messages older than 2 months in index
+color index color59 default ~D		# Deleted messages in index
+color indicator color15 color0		# Arrow next to selected item
+color message color252 color0		# Status line messages
+color status color15 color235		# Mutt menu bars
+color tree color59 color0			# Arrows in tree view
+
+
+### Writing -------------------------------------------------------------------
+# Formatting options
+set text_flowed				# Declares that lines will be shorter than 80 chars
+
+# Reply options
+set metoo					# When replying, send copy to self (helps threads)
+set fast_reply				# Don't prompt for obvious headers when replying
+set include=yes				# Don't prompt for old message body when replying
+set include_onlyfirst		# Only include the immediately previous message
+set attribution="%{%F %H:%M GMT%z} %F <%a>:"	# 1-line prefix to quoted text
+
+
+### Reading -------------------------------------------------------------------
+# Options for the pager interface
+set pager_index_lines=10	# Allow reading with index shown
+set pager_stop				# Stop the pager at the end of a message
+
+# If text/enriched present in message parts, apply coloring rules
+set allow_ansi
+color normal color252 color0	# normal text
+color bold color15 color0		# bold text
+
+# If text/plain present in message parts, color common elements
+color body color15 color0 "\\*[^*]+\\*"				# "bold" text
+color body color229 color0 "_[^_]+_"				# "underlined" text
+color body color81 color0 "https?://[^ \t\n<>]+"	# URLs
+color body color33 color0 "[:;=8]-?[)(\]\[|<>9]"	# Emoticons1
+
+# Colors for parts of message bodies
+color attachment color59 color0		# Line that says external handlers are used
+color hdrdefault color59 color0		# All message headers
+color markers color59 color0		# Line-wrap markers
+color quoted color81 color0			# Immediately previous message in chain
+color quoted1 color59 color0		# Older messages in chain
+color search color15 color33		# Search term highlight in pager
+color signature color59 color0		# Signature at the end of a message
+color tilde color59 color0			# Blank line markers

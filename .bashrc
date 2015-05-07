@@ -20,6 +20,9 @@ export JAVA_HOME=/usr
 # Add to PATH env var
 export PATH=/usr/local/bin:$PATH
 
+# Add to LD_LIBRARY_PATH env var
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+
 # Path for golang
 export GOROOT=/usr/share/go/
 export GOPATH=/usr/share/go/
@@ -232,8 +235,12 @@ esac
 #Colors!!!
 if [ -z "$TMUX" ]; then
     export TERM=xterm-256color
+    export TERMCAP=xterm-256color
+	export TERMINFO=/lib/terminfo/x/xterm-256color
 else
     export TERM=screen-256color
+    export TERMCAP=screen-256color
+	export TERMINFO=/lib/terminfo/s/screen-256color
 fi
 
 # Alias definitions.

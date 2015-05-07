@@ -1,0 +1,2 @@
+text/html;	/usr/bin/elinks -force-html -config-dir /home/kenny/.elinks %s; nametemplate=%s.html
+text/html;	/usr/bin/elinks -dump -dump-charset 'UTF-8' -dump-color-mode 3 -force-html -config-dir /home/kenny/.elinks %s; nametemplate=%s.html; copiousoutput

@@ -11,3 +11,8 @@ cp "/usr/share/fonts/TerminalAwesomeness.ttf" "$DIR/TerminalAwesomeness.ttf" 2>/
 cp "$HOME/.tmux.conf" "$DIR/.tmux.conf"
 cp "$HOME/scripts/tmux_tempr.sh" "$DIR/tmux_tempr.sh"
 cp "$HOME/.vimrc" "$DIR/.vimrc"
+cp "$HOME/.muttrc" "$DIR/.muttrc"
+cp "$HOME/.mailcap" "$DIR/.mailcap"
+cp "$HOME/.elinks/elinks.conf" "$DIR/.elinks/elinks.conf"
+cp "$HOME/.elinks/user.css" "$DIR/.elinks/user.css"
+cp -R "$HOME/.terminfo" "$DIR/.terminfo"
