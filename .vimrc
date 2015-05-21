@@ -3,7 +3,7 @@
 " ==============================================================================
 
 " Set home path
-let $HOME='/home/kenny/'
+let $HOME="/home/".$USER."/"
 
 " Set leader input
 let mapleader = ","
