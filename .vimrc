@@ -133,8 +133,8 @@ auto BufNewFile,BufRead *.boa setlocal filetype=boa
 auto BufNewFile,BufRead *.txt setlocal filetype=txt
 
 " Preserve folds etc. when leaving a file
-autocmd BufWinLeave *[a-zA-Z0-9_.]* mkview
-autocmd BufWinEnter *[a-zA-Z0-9_.]* silent loadview
+autocmd BufWrite *[a-zA-Z0-9_.]* mkview
+autocmd BufRead *[a-zA-Z0-9_.]* silent loadview
 
 " Enable plugins in editor
 filetype plugin on
