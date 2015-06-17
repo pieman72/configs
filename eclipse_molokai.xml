@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<colorTheme id="727272" name="HS Molokai" modified="2015-06-09" author="kenny" website="http://harveyserv.ath.cx/molokai-for-eclipse">
+	<!-- Defaults -->
+    <background color="#000000" />
+    <foreground color="#E0E0E0" />
+    <lineNumber color="#808080" />
+	<currentLine color="#000000" />
+    <selectionBackground color="#2020D0" />
+    <selectionForeground color="#FFFFFF" />
+
+	<!-- Functions, Variables, and Punctuation -->
+    <method color="#E0E0E0" />
+    <methodDeclaration color="#E0E0E0" />
+    <abstractMethod color="#E0E0E0" />
+    <inheritedMethod color="#E0E0E0" />
+    <staticMethod color="#E0E0E0" />
+    <localVariable color="#E0E0E0" />
+    <localVariableDeclaration color="#E0E0E0" />
+    <field color="#E0E0E0" />
+    <staticField color="#E0E0E0" />
+    <staticFinalField color="#E0E0E0" />
+    <parameterVariable color="#E0E0E0" />
+    <typeArgument color="#E0E0E0" />
+    <typeParameter color="#E0E0E0" />
+    <bracket color="#E0E0E0" />
+
+	<!-- Classes -->
+    <class color="#87FF00" />
+    <interface color="#87FF00" />
+
+	<!-- Keywords -->
+    <keyword color="#5FD7FF" />
+
+	<!-- Operators -->
+    <operator color="#AF5FFF" />
+
+	<!-- Literals -->
+    <constant color="#FF8700" />
+    <number color="#FF8700" />
+    <string color="#FF8700" />
+    <enum color="#FF8700" />
+
+	<!-- Comments -->
+    <singleLineComment color="#585858" />
+    <multiLineComment color="#585858" />
+    <commentTaskTag color="#FFFFFF" underline="true" />
+
+	<!-- Special Comments -->
+    <javadoc color="#5050D0" />
+    <javadocLink color="#5050D0" />
+    <javadocTag color="#5050D0" />
+    <javadocKeyword color="#5050D0" />
+    <annotation color="#5050D0" />
+
+	<!-- Highlights -->
+    <searchResultIndication color="#404040" />
+    <filteredSearchResultIndication color="#404040" />
+    <occurrenceIndication color="#404040" />
+    <writeOccurrenceIndication color="#404040" />
+    <deletionIndication color="#404040" />
+    <sourceHoverBackground color="#404040" />
+    <findScope color="#2020D0" />
+    <deprecatedMember color="#D7005F" underline="true" />
+</colorTheme>
