@@ -73,7 +73,7 @@ prompt_replace "$DIR/tmux_tempr.sh" "$HOME/scripts/tmux_tempr.sh"
 # Mutt
 echo -e "\n\e[38;5;208m--- Exporting mutt configs\e[39m"
 echo "mail"
-if [ -z "$(which mail)" ]; then sudo apt-get install mail; fi
+if [ -z "$(which mail)" ]; then sudo apt-get install mailutils; fi
 echo "mutt"                                              
 if [ -z "$(which mutt)" ]; then sudo apt-get install mutt; fi
 echo ".muttrc"
