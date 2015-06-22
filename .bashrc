@@ -30,12 +30,12 @@ export GOPATH=/usr/share/go/
 # Nice SVN commits
 export SVN_EDITOR='vim -c "4,\$y" -c "vnew" -c "put" -c "set syntax=diff buftype=nofile nowrap nobackup previewwindow bufhidden=delete" -c "silent execute \"%!cut -c-5 --complement | xargs svn diff --no-diff-deleted -x --ignore-eol-style\" | redraw" +0'
 
-# My quick_scripts
+# Aliases
 alias ncl="nc -l -p"
 alias apache="sudo /etc/init.d/apache2"
 alias beep="echo -n -e '\a'"
 alias tm="tmux -u"
-alias tl="tmux list-sessions"
+alias tl="tmux list-sessions 2> /dev/null"
 alias ta="tmux -u attach-session -t"
 alias pro=swipl
 alias sudo="sudo "
@@ -50,7 +50,7 @@ alias configs_import="~/configs/import.sh"
 # Tab complete Tmux sessions
 tmuxComplete(){
     local cur=${COMP_WORDS[COMP_CWORD]}
-    COMPREPLY=( $(compgen -W "$(tmux list-sessions | cut -d: -f1 | paste -s -d ' ' -)" -- $cur) )
+    COMPREPLY=( $(compgen -W "$(tmux list-sessions 2> /dev/null | cut -d: -f1 | paste -s -d ' ' -)" -- $cur) )
 }
 complete -F tmuxComplete ta
 
@@ -316,19 +316,8 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-force_color_prompt=yes
-
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-        # We have color support; assume it's compliant with Ecma-48
-        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-        # a case would tend to support setf rather than setaf.)
-        color_prompt=yes
-    else
-        color_prompt=
-    fi
-fi
-
+# Color the command prompt
+color_prompt=yes
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[38;5;118m\]\u@\[\033[4;31m\]\h\[\033[0;38;5;118m\]:\w\$\[\033[0;37m\] '
 else
@@ -355,15 +344,6 @@ else
     export TERMCAP=screen-256color
 	export TERMINFO=/lib/terminfo/s/screen-256color
 fi
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-#if [ -f ~/.bash_aliases ]; then
-#    . ~/.bash_aliases
-#fi
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
