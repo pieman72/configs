@@ -80,6 +80,8 @@ echo ".muttrc"
 prompt_replace "$DIR/.muttrc" "$HOME/.muttrc"
 echo ".mailcap"
 prompt_replace "$DIR/.mailcap" "$HOME/.mailcap"
+echo ".procmailrc"
+prompt_replace "$DIR/.procmailrc" "$HOME/.procmailrc"
 echo ".elinks"
 if [ ! -d "$HOME/.elinks" ]; then mkdir "$HOME/.elinks"; fi
 echo "elinks.conf"
