@@ -52,6 +52,8 @@ echo ".vimrc"
 prompt_replace "$DIR/.vimrc" "$HOME/.vimrc"
 echo "molokai.vim"
 prompt_replace "$DIR/molokai.vim" "$HOME/.vim/colors/molokai.vim"
+echo "ctags"
+if [ -z "$(which ctags)" ]; then sudo apt-get install ctags; fi
 echo "Vundle"
 if [ ! -d "$HOME/.vim/bundle" ]; then git clone https://github.com/gmarik/Vundle.vim.git "$HOME/.vim/bundle/Vundle.vim"; fi
 read -r -p " * Would you like to install/update Vim plugins? [y/N] " update
@@ -88,6 +90,13 @@ echo "elinks.conf"
 prompt_replace "$DIR/.elinks/elinks.conf" "$HOME/.elinks/elinks.conf"
 echo "user.css"
 prompt_replace "$DIR/.elinks/user.css" "$HOME/.elinks/user.css"
+
+# Java
+echo -e "\n\e[38;5;161m--- Checking Java installation\e[39m"
+echo "javac"
+if [ -z "$(which javac)" ]; then sudo apt-get install default-jdk; fi
+echo "java"
+if [ -z "$(which java)" ]; then sudo apt-get install default-jre; fi
 
 # Done
 echo -e "\n--- All done! Please source your .bashrc ---\n"
