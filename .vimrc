@@ -20,41 +20,16 @@ call vundle#begin()
 
 " Let Vundle manage plugins
 Bundle 'gmarik/vundle'
-Bundle 'majutsushi/tagbar'
-Bundle 'vimoutliner/vimoutliner'
+Bundle 'bling/vim-airline'
 Bundle 'scrooloose/syntastic'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'tristen/vim-sparkup'
+Bundle 'majutsushi/tagbar'
 Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
-Bundle 'bling/vim-airline'
-Bundle 'tristen/vim-sparkup'
-Bundle 'marijnh/tern_for_vim'
+Bundle 'vimoutliner/vimoutliner'
 Bundle 'pieman72/vim-vigor'
 call vundle#end()
-
-" Config for tagbar
-let g:tagbar_map_togglefold = "<space>"
-let g:tagbar_map_showproto = "<right>"
-let g:tagbar_autoclose = 0
-
-" Config for syntastic
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-let g:syntastic_c_remove_include_errors = 1
-let g:syntastic_cpp_remove_include_errors = 1
-let g:syntastic_cpp_checkers=['clang']
-let g:syntastic_php_checkers = ['php']
-
-" Config for GitGutter
-let g:gitgutter_enabled = 1
-let g:gitgutter_map_keys = 0
-let g:gitgutter_realtime = 1
-let g:gitgutter_eager = 1
-let g:gitgutter_sign_added = '+'
-let g:gitgutter_sign_modified = '~'
-let g:gitgutter_sign_removed = '_'
-let g:gitgutter_sign_modified_removed = '±'
 
 " Config for vim airline
 set noshowmode                     " -- Hide default mode indicator
@@ -87,11 +62,36 @@ function! AirlineInit()
 endfunction
 auto VimEnter * call AirlineInit()
 
+" Config for syntastic
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+let g:syntastic_c_remove_include_errors = 1
+let g:syntastic_cpp_remove_include_errors = 1
+let g:syntastic_cpp_checkers=['clang']
+let g:syntastic_php_checkers = ['php']
+
+" Config for YouCompleteMe
+let g:ycm_error_symbol = ''
+
 " Config for sparkup
 let g:sparkupDoubleQuote = 1
 
-" Config for tern_for_vim
-"let g:tern#command = ["~/.vim/bundle/tern_for_vim/node_modules/tern/bin/tern"]
+" Config for tagbar
+let g:tagbar_map_togglefold = "<space>"
+let g:tagbar_map_showproto = "<right>"
+let g:tagbar_autoclose = 0
+
+" Config for GitGutter
+let g:gitgutter_enabled = 1
+let g:gitgutter_map_keys = 0
+let g:gitgutter_realtime = 1
+let g:gitgutter_eager = 1
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '~'
+let g:gitgutter_sign_removed = '_'
+let g:gitgutter_sign_modified_removed = '±'
 
 
 " ==============================================================================
@@ -135,6 +135,9 @@ auto BufNewFile,BufRead *.txt setlocal filetype=txt
 " Preserve folds etc. when leaving a file
 autocmd BufWrite *[a-zA-Z0-9_.]* mkview
 autocmd BufRead *[a-zA-Z0-9_.]* silent loadview
+
+" Stay in active file dir
+autocmd BufNewFile,BufEnter * silent! lcd %:p:h
 
 " Enable plugins in editor
 filetype plugin on

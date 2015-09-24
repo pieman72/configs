@@ -71,6 +71,8 @@ echo "scripts"
 if [ ! -d "$HOME/scripts" ]; then mkdir "$HOME/scripts"; fi
 echo "tmux_tempr.sh"
 prompt_replace "$DIR/tmux_tempr.sh" "$HOME/scripts/tmux_tempr.sh"
+echo "layout.tmux"
+prompt_replace "$DIR/layout.tmux" "$HOME/scripts/layout.tmux"
 
 # Mutt
 echo -e "\n\e[38;5;208m--- Exporting mutt configs\e[39m"

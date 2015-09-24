@@ -10,6 +10,7 @@ cp "/usr/local/share/fonts/TerminalAwesomeness.ttf" "$DIR/TerminalAwesomeness.tt
 cp "/usr/share/fonts/TerminalAwesomeness.ttf" "$DIR/TerminalAwesomeness.ttf" 2>/dev/null || :
 cp "$HOME/.tmux.conf" "$DIR/.tmux.conf"
 cp "$HOME/scripts/tmux_tempr.sh" "$DIR/tmux_tempr.sh"
+cp "$HOME/scripts/layout.tmux" "$DIR/layout.tmux"
 cp "$HOME/.vimrc" "$DIR/.vimrc"
 cp "$HOME/.muttrc" "$DIR/.muttrc"
 cp "$HOME/.mailcap" "$DIR/.mailcap"

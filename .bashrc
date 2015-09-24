@@ -23,10 +23,6 @@ export PATH=/usr/local/bin:$PATH
 # Add to LD_LIBRARY_PATH env var
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
-# Path for golang
-export GOROOT=/usr/share/go/
-export GOPATH=/usr/share/go/
-
 # Nice SVN commits
 export SVN_EDITOR='vim -c "4,\$y" -c "vnew" -c "put" -c "set syntax=diff buftype=nofile nowrap nobackup previewwindow bufhidden=delete" -c "silent execute \"%!cut -c-5 --complement | xargs svn diff --no-diff-deleted -x --ignore-eol-style\" | redraw" +0'
 
@@ -47,6 +43,12 @@ alias lisp="sbcl"
 alias lisp_load="sbcl --load"
 alias configs_export="~/configs/export.sh"
 alias configs_import="~/configs/import.sh"
+
+# Start new sessions with a layout
+function tn(){
+	tmux -u new -s $1 \; source ~/scripts/layout.tmux
+}
+
 # Tab complete Tmux sessions
 tmuxComplete(){
     local cur=${COMP_WORDS[COMP_CWORD]}
